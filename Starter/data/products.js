@@ -1,0 +1,30 @@
+// data/products.js
+// Inventory for "Uteeni & Co. Parts & Scrap" (Tatooine)
+// NOTE: Fields like supplierCost, inventoryCount, internalNotes are intentionally present
+// so the vulnerable API can over-expose them. The secure API should whitelist fields.
+
+module.exports = [
+  { id: 501, sku: "RB-MK4",       name: "Restraining Bolt Mk.IV",                   price: 45,   category: "Droid Security",  description: "Limits droid behavior; pairs with caller.",                      supplierCost: 9,   inventoryCount: 120, internalNotes: "High demand near Mos Espa" },
+  { id: 502, sku: "CALL-STD",     name: "Droid Caller (Signal Box)",                price: 65,   category: "Droid Security",  description: "Handheld device to summon bolted droids.",                      supplierCost: 14,  inventoryCount: 80,  internalNotes: "Pairs with RB-MK4" },
+  { id: 503, sku: "R2-MOTIV",     name: "Astromech Motivator (R-series)",           price: 220,  category: "Droid Parts",     description: "Replacement motivator for R-series units.",                     supplierCost: 95,  inventoryCount: 17,  internalNotes: "Check returns for R5 units" },
+  { id: 504, sku: "ION-JAWA-KIT", name: "Ion Blaster Parts Kit (Jawa Pattern)",     price: 160,  category: "Tools/Weapons",    description: "Disable droids with non-lethal ion components.",               supplierCost: 60,  inventoryCount: 22,  internalNotes: "Must verify export permit" },
+  { id: 505, sku: "GNK-REFURB",   name: "GNK Power Droid (Refurb)",                 price: 1900, category: "Power",            description: "Walking battery for field recharging.",                         supplierCost: 1100, inventoryCount: 3,   internalNotes: "Battery cores tested: 2/3 good" },
+
+  { id: 520, sku: "GX8-FLTR",     name: "GX-8 Vaporator Filter & Seal Pack",        price: 75,   category: "Moisture Farm",   description: "Seals/filters for GX-8 units.",                                 supplierCost: 22,  inventoryCount: 64,  internalNotes: "Bulk discount 10+" },
+  { id: 521, sku: "VAP-CTRL",     name: "Vaporator Control Board (Universal)",      price: 140,  category: "Moisture Farm",   description: "Swap-in board for most farm vaporators.",                       supplierCost: 52,  inventoryCount: 33,  internalNotes: "Refurb from Anchorhead lot" },
+  { id: 522, sku: "PWR-CONV-T",   name: "Type-T Power Converter",                    price: 95,   category: "Power",            description: "General-purpose converter for field rigs.",                      supplierCost: 38,  inventoryCount: 41,  internalNotes: "Ask about Tosche Station pickup" },
+
+  { id: 540, sku: "CMC-TRD-11",   name: "Sandcrawler Tread Segment (Heavy)",        price: 320,  category: "Crawler Mobility", description: "Heavy plate segment for main treads.",                           supplierCost: 180, inventoryCount: 12,  internalNotes: "Fits CMC bogies" },
+  { id: 541, sku: "CMC-SPRK-DR",  name: "Drive Sprocket (Forward Bogie)",           price: 410,  category: "Crawler Mobility", description: "Drive sprocket for forward bogie cluster.",                      supplierCost: 240, inventoryCount: 7,   internalNotes: "Core charge applies" },
+  { id: 542, sku: "CMC-IDL-KIT",  name: "Idler Wheel + Axle Kit",                    price: 280,  category: "Crawler Mobility", description: "Idler wheel assembly with axle/hardware.",                       supplierCost: 150, inventoryCount: 10,  internalNotes: "Left/right interchangeable" },
+  { id: 543, sku: "CMC-TENS-ASM", name: "Track Tensioner Assembly",                  price: 390,  category: "Crawler Mobility", description: "Hydraulic tensioner for tread alignment.",                       supplierCost: 210, inventoryCount: 6,   internalNotes: "Don’t over-pressurize" },
+  { id: 544, sku: "CMC-BOG-4R",   name: "Suspension Bogie (Quad Roller)",            price: 760,  category: "Crawler Mobility", description: "Four-roller bogie for mid-bay cluster.",                         supplierCost: 420, inventoryCount: 3,   internalNotes: "Remanufactured" },
+  { id: 545, sku: "CMC-RAMP-HYD", name: "Ramp Hydraulic Servo & Seals",              price: 240,  category: "Crawler Systems",  description: "Hydraulic servo pack for loading ramp.",                        supplierCost: 120, inventoryCount: 11,  internalNotes: "Seal kit included" },
+  { id: 546, sku: "CMC-VIEW-TRI", name: "Cockpit Viewport (Triangular, Armored)",    price: 600,  category: "Crawler Structure", description: "Armored triangular viewport glazing.",                           supplierCost: 340, inventoryCount: 2,   internalNotes: "Scratched but sealed" },
+  { id: 547, sku: "CMC-HULL-1x2", name: "Hull Plate Panel (1×2 m, Rust-Patina)",     price: 150,  category: "Crawler Structure", description: "Armor panel for exterior hull repair.",                           supplierCost: 60,  inventoryCount: 18,  internalNotes: "Cosmetic patina ok" },
+
+  { id: 560, sku: "SMELT-GR8",    name: "Ore Hopper Grate (Heat-treated)",           price: 180,  category: "Smelter",          description: "Replacement grate for hopper throat.",                           supplierCost: 90,  inventoryCount: 8,   internalNotes: "Warped grid is still usable" },
+  { id: 561, sku: "IND-COIL-R",   name: "Induction Coil Relay (Smelter)",            price: 230,  category: "Smelter",          description: "High-temp induction relay module.",                              supplierCost: 120, inventoryCount: 5,   internalNotes: "Test @ 80% duty" },
+  { id: 562, sku: "MAG-HOOK-2T",  name: "Magnetic Crane Hook (2-ton)",               price: 210,  category: "Salvage",          description: "2-ton magnetized crane hook.",                                  supplierCost: 105, inventoryCount: 9,   internalNotes: "Demag on return" },
+  { id: 563, sku: "SALV-EMAG",    name: "Salvage Electromagnet (Deck Crane Head)",   price: 520,  category: "Salvage",          description: "Deck-crane electromagnet head.",                                supplierCost: 290, inventoryCount: 4,   internalNotes: "Cables frayed—warn buyer" }
+];
