@@ -102,6 +102,9 @@ app.get('/admin/users', (req, res) => {
 });
 
 // helper
-app.get('/whoami', (req, res) => res.json({ user: req.user || null }));
+app.get('/whoami', authRequired, (req, res) => {
+  const { id, name, email, role } = req.user;
+  res.json({ user: { id, name, email, role } });
+});
 
 module.exports = app;
