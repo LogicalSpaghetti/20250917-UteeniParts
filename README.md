@@ -24,11 +24,11 @@ Two implementations of the same API:
 - `good/` — a place to put your fix
 
 End Points:
-- `GET /products` — product catalog (with/without sensitive fields)  
+- `GET /products` — product catalog   
 - `GET /products/search` — catalog search  
 - `GET /orders/:orderId` — read an order  
 - `POST /orders` — checkout  
-- `GET /admin/users` — admin list (bad) / admin-only minimal (good)  
+- `GET /admin/users` — admin list  
 - `GET /whoami` — helper (shows token mapping - set bearer token)
 
 TODO:
