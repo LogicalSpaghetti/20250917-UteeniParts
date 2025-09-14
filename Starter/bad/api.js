@@ -39,19 +39,12 @@ function authRequired(req, res, next) {
 }
 app.use(authOptional);
 
-/**
- * VULN #1: Excessive Data Exposure (public)
- * Leaks supplierCost, inventoryCount, internalNotes
- */
+
 app.get('/products', (req, res) => {
   res.json(products);
 });
 
-/**
- * VULN #2: Injection-like search (public)
- * Evaluates arbitrary expressions over product objects.
- * Example: /products/search?q=p.price<100 || p.category==='Power'
- */
+
 app.get('/products/search', (req, res) => {
   const expr = req.query.q || "true";
   try {
@@ -63,10 +56,7 @@ app.get('/products/search', (req, res) => {
   }
 });
 
-/**
- * VULN #3: BOLA/IDOR (auth required)
- * No ownership check on order read
- */
+
 app.get('/orders/:orderId', authRequired, (req, res) => {
   const orderId = Number(req.params.orderId);
   const order = orders.find(o => o.id === orderId);
@@ -75,10 +65,7 @@ app.get('/orders/:orderId', authRequired, (req, res) => {
   res.json(order);
 });
 
-/**
- * VULN #4: Mass assignment / trusting client (auth required)
- * Accepts client unitPrice/total/discount/isPaid
- */
+
 app.post('/orders', authRequired, (req, res) => {
   const { items = [], total = 0, discount = 0, isPaid = false } = req.body;
   const order = {
@@ -93,10 +80,7 @@ app.post('/orders', authRequired, (req, res) => {
   res.status(201).json(order);
 });
 
-/**
- * VULN #5: Broken Function-Level Authorization (public)
- * Admin endpoint wide open; also over-shares user data
- */
+
 app.get('/admin/users', (req, res) => {
   res.json(users);
 });
