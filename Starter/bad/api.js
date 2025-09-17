@@ -48,7 +48,7 @@ app.get('/products', (req, res) => {
 app.get('/products/search', (req, res) => {
   const expr = req.query.q || "true";
   try {
-    const predicate = new Function("p", `return (${expr});`); // DANGEROUS
+    const predicate = new Function("p", `return (${expr});`); 
     const results = products.filter(predicate);
     res.json({ expr, count: results.length, results });
   } catch (e) {
@@ -61,7 +61,6 @@ app.get('/orders/:orderId', authRequired, (req, res) => {
   const orderId = Number(req.params.orderId);
   const order = orders.find(o => o.id === orderId);
   if (!order) return res.status(404).json({ error: "Order not found" });
-  // MISSING: check order.userId === req.user.id || admin
   res.json(order);
 });
 
@@ -73,7 +72,7 @@ app.post('/orders', authRequired, (req, res) => {
     userId: req.user.id,
     items: items.map(x => ({ productId: x.productId, qty: x.qty, unitPrice: x.unitPrice })), // should NOT trust client price
     total: Number(total) - Number(discount || 0),
-    isPaid, // should be set by payment system
+    isPaid, 
     internalStatus: "PENDING"
   };
   orders.push(order);
